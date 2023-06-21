@@ -1,15 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Employee_data_fetch from "./components/Employee_data_fetch";
-
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Error from "./components/Error";
+import Insta from "./components/Insta";
+import Mail from "./components/Mail";
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <br />
-      <Employee_data_fetch />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <br />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />}>
+            <Route path="insta" element={<Insta />} />
+            <Route path="mail" element={<Mail />} />
+          </Route>
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

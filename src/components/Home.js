@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Employee_data_fetch = () => {
+const Home = () => {
   const [state, setState] = useState(1);
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -28,11 +28,6 @@ const Employee_data_fetch = () => {
             <h3>{element.firstName}</h3>
             <h3>{element.lastName}</h3>
             <h3>{element.email}</h3>
-            <h3>{element.contactNumber}</h3>
-            <h3>{element.age}</h3>
-            <h3>{element.dob}</h3>
-            <h3>{element.salary}</h3>
-            <h3>{element.address}</h3>
           </div>
         );
       })}
@@ -40,4 +35,4 @@ const Employee_data_fetch = () => {
   );
 };
 
-export default Employee_data_fetch;
+export default Home;

@@ -11,9 +11,13 @@ h1 {
 }
 
 .header {
+  display: flex;
   background-color: #192a56;
   color: white;
   width: 101%;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0px;
 }
 
 .form {
