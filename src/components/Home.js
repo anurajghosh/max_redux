@@ -17,6 +17,7 @@ const Home = () => {
   return (
     <div className="App">
       <button
+        className="btn"
         onClick={() => {
           setState(state + 2);
         }}>
