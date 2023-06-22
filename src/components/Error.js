@@ -6,6 +6,7 @@ const Error = () => {
   return (
     <>
       <div>404 Page not Found</div>
+      <br />
       <button onClick={() => navigate(-1)}>Go Back</button>
     </>
   );
