@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Error from "./components/Error";
 import Insta from "./components/Insta";
 import Mail from "./components/Mail";
+import UserDetails from "./components/UserDetails";
+
 const App = () => {
   return (
     <Router>
@@ -17,8 +19,11 @@ const App = () => {
         <Routes path="/">
           <Route>
             <Route index element={<Home />} />
-            <Route element={<Home />} />
+            <Route path="/app" element={<Home />} />
           </Route>
+          {/* for dynamic Route we use (:) path  */}
+          <Route path="/app/:userId" element={<UserDetails />}></Route>
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />}>
             <Route index element={<Insta />} />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Home = () => {
-  const [state, setState] = useState(1);
+  const [state, setState] = useState(2);
   const [data, setData] = useState([]);
   useEffect(() => {
     async function getData() {
@@ -25,13 +25,16 @@ const Home = () => {
       </button>
       {data.map((element, index) => {
         return (
-          <div className="data" key={index}>
-            <h3>{element.firstName}</h3>
-            <h3>{element.lastName}</h3>
-            <h3>{element.email}</h3>
-          </div>
+          <Link to={`/app/${element.id}`}>
+            <div className="data" key={index}>
+              <h3>{element.firstName}</h3>
+              <h3>{element.lastName}</h3>
+              <h3>{element.email}</h3>
+            </div>
+          </Link>
         );
       })}
+      
     </div>
   );
 };
