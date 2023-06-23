@@ -16,8 +16,8 @@ h1 {
   background-color: #192a56;
   color: white;
   width: 100%;
-  justify-content: space-between;
-  padding: 16px;
+  justify-content: center;
+  padding: 10px;
   margin: -8px 19px 0px 19px;
 }
 
@@ -43,4 +43,23 @@ h1 {
 .btn {
   background-color: #27ae60;
   color: white;
+}
+
+.compA {
+  background-color: #192a56;
+  color: white;
+  padding: 10px;
+  margin: 8px;
+}
+
+.compB {
+  background-color: #27ae60;
+  padding: 10px;
+  margin: 8px;
+}
+
+.compC {
+  background-color: blue;
+  padding: 10px;
+  margin: 8px;
 }
