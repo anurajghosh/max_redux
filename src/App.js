@@ -1,31 +1,26 @@
-import { useState, createContext } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import CompA from "./components/CompA";
 
-const AppState = createContext();
-const NameContext = createContext();
 const App = () => {
-  const [data, setData] = useState("Anuraj Ghosh");
-  const [name, setName] = useState({
-    name: "Ankit",
-    age: 31,
-    address: "jabalpur",
-  });
+  const [input, setInput] = useState(" ");
+  const inputField = useRef();
+
+  const formHandler = (e) => {
+    setInput(e.target.value);
+  };
+  const clickHandler = () => {
+    inputField.current.value = "anuraj";
+  };
+
   return (
     <>
-      <AppState.Provider value={{ data }}>
-        <NameContext.Provider value={name}>
-          <div className="App">
-            <Header />
-            <br />
-            <CompA />
-          </div>
-        </NameContext.Provider>
-      </AppState.Provider>
+      <Header />
+      <input ref={inputField} value={input} onChange={formHandler} />
+
+      <button onClick={clickHandler}>Click me</button>
     </>
   );
 };
 
 export default App;
-export { AppState, NameContext };
