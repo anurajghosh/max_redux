@@ -1,24 +1,27 @@
-import React, { useState, useRef } from "react";
+import React, { useReducer } from "react";
 import "./App.css";
 import Header from "./components/Header";
 
+const reducer = (state, action) => {
+  if (action.type === "INC") {
+    return state + 2;
+  } else if (action.type === "DEC") {
+    return state - 7;
+  } else if (action.type === "MUL") {
+    return state * 6;
+  } else {
+    return state;
+  }
+};
 const App = () => {
-  const [input, setInput] = useState(" ");
-  const inputField = useRef();
-
-  const formHandler = (e) => {
-    setInput(e.target.value);
-  };
-  const clickHandler = () => {
-    inputField.current.value = "anuraj";
-  };
-
+  const [state, dispatch] = useReducer(reducer, 0);
   return (
     <>
       <Header />
-      <input ref={inputField} value={input} onChange={formHandler} />
-
-      <button onClick={clickHandler}>Click me</button>
+      <h1>{state}</h1>
+      <button onClick={() => dispatch({ type: "INC" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "DEC" })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "MUL" })}>Multiply</button>
     </>
   );
 };
