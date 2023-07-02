@@ -1,22 +1,29 @@
-import "./App.css";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Inc, Dec } from "./components/states/reducers/index";
 import Header from "./components/Header";
-import useFetch from "./components/useFetch";
+
 const App = () => {
-  const [data] = useFetch(
-    "https://hub.dummyapis.com/employee?noofRecords=5&idStarts=1001"
-  );
+  const curState = useSelector((state) => state.number);
+  const dispatch = useDispatch();
   return (
-    <>
+    <div>
       <Header />
-      {data.map((e, i) => {
-        return (
-          <div key={i}>
-            <h1>{e.firstName}</h1>
-            <h2>{e.lastName}</h2>
-          </div>
-        );
-      })}
-    </>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}>
+        <h1>{curState}</h1>
+        <div>
+          <button onClick={() => dispatch(Inc(10))}>Increment</button>
+          <button onClick={() => dispatch(Dec(5))}>Decrement</button>
+        </div>
+      </div>
+    </div>
   );
 };
 
