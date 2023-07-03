@@ -3,6 +3,6 @@ import incdecReducer from "./reducers/index";
 
 export default configureStore({
   reducer: {
-    number: incdecReducer,
+    counter: incdecReducer,
   },
 });

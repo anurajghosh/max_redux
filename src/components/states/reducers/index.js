@@ -4,11 +4,11 @@ export const incdecSlice = createSlice({
   name: "incdec",
   initialState: 0,
   reducers: {
-    Inc: (state, action) => {
-      return (state += action.payload);
+    Inc: (state) => {
+      return (state += 1);
     },
-    Dec: (state, action) => {
-      return (state -= action.payload);
+    Dec: (state) => {
+      return (state -= 1);
     },
   },
 });
